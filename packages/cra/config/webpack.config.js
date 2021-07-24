@@ -1,4 +1,4 @@
-'use strict';
+
 
 const fs = require('fs');
 const path = require('path');
@@ -360,6 +360,11 @@ module.exports = function (webpackEnv) {
     module: {
       strictExportPresence: true,
       rules: [
+        {
+          type: "javascript/auto",
+          test: /\.mjs$/,
+          use: []
+        },
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
         {

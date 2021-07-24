@@ -3,23 +3,15 @@ import "./App.css";
 import React from "react";
 import { useStore } from "@reproduce/lib/dist/index";
 
-function BearCounter() {
-  const bears = useStore((state: any) => state.bears);
-  return <h1>{bears} around here ...</h1>;
-}
-
-function Controls() {
-  const increasePopulation = useStore((state: any) => state.increasePopulation);
-  return <button onClick={increasePopulation}>one up</button>;
-}
-
-function App() {
+const App = () => {
+  const bears = useStore((state) => state.bears);
+  const increasePopulation = useStore((state) => state.increasePopulation);
   return (
     <div className="App">
-      <BearCounter />
-      <Controls />
+      <h1>{bears} around here ...</h1>
+      <button onClick={increasePopulation}>one up</button>
     </div>
   );
-}
+};
 
 export default App;
